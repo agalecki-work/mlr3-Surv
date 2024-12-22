@@ -1,0 +1,188 @@
+2024-12-20 16:33:25.050 [info ]: Starting training
+2024-12-20 16:33:25.050 [info ]: Starting training
+2024-12-20 16:33:25.050 [info ]: Starting training
+2024-12-20 16:33:25.050 [info ]: Starting training
+2024-12-20 16:33:25.076 [info ]: Finishing training
+2024-12-20 16:33:25.076 [info ]: Finishing training
+2024-12-20 16:33:25.076 [info ]: Finishing training
+2024-12-20 16:33:25.076 [info ]: Finishing training
+2024-12-20 16:33:25.087 [info ]: Making predictions
+2024-12-20 16:33:25.087 [info ]: Making predictions
+2024-12-20 16:33:25.087 [info ]: Making predictions
+2024-12-20 16:33:25.087 [info ]: Making predictions
+2024-12-20 16:33:25.108 [info ]: Predictions completed
+2024-12-20 16:33:25.108 [info ]: Predictions completed
+2024-12-20 16:33:25.108 [info ]: Predictions completed
+2024-12-20 16:33:25.108 [info ]: Predictions completed
+2024-12-20 16:33:25.118 [info ]: Evaluating performance
+2024-12-20 16:33:25.118 [info ]: Evaluating performance
+2024-12-20 16:33:25.118 [info ]: Evaluating performance
+2024-12-20 16:33:25.118 [info ]: Evaluating performance
+2024-12-20 16:33:25.137 [info ]: Performance evaluation completed
+2024-12-20 16:33:25.137 [info ]: Performance evaluation completed
+2024-12-20 16:33:25.137 [info ]: Performance evaluation completed
+2024-12-20 16:33:25.137 [info ]: Performance evaluation completed
+2024-12-20 16:33:25.146 [info ]: Uno's C-Index: 0.898412
+2024-12-20 16:33:25.146 [info ]: Uno's C-Index: 0.898412
+2024-12-20 16:33:25.146 [info ]: Uno's C-Index: 0.898412
+2024-12-20 16:33:25.146 [info ]: Uno's C-Index: 0.898412
+2024-12-20 16:38:42.443 [info ]: Starting training
+2024-12-20 16:38:42.443 [info ]: Starting training
+2024-12-20 16:38:42.443 [info ]: Starting training
+2024-12-20 16:38:42.443 [info ]: Starting training
+2024-12-20 16:38:42.470 [info ]: Finishing training
+2024-12-20 16:38:42.470 [info ]: Finishing training
+2024-12-20 16:38:42.470 [info ]: Finishing training
+2024-12-20 16:38:42.470 [info ]: Finishing training
+2024-12-20 16:38:42.481 [info ]: Making predictions
+2024-12-20 16:38:42.481 [info ]: Making predictions
+2024-12-20 16:38:42.481 [info ]: Making predictions
+2024-12-20 16:38:42.481 [info ]: Making predictions
+2024-12-20 16:38:42.503 [info ]: Predictions completed
+2024-12-20 16:38:42.503 [info ]: Predictions completed
+2024-12-20 16:38:42.503 [info ]: Predictions completed
+2024-12-20 16:38:42.503 [info ]: Predictions completed
+2024-12-20 16:38:42.514 [info ]: Evaluating performance
+2024-12-20 16:38:42.514 [info ]: Evaluating performance
+2024-12-20 16:38:42.514 [info ]: Evaluating performance
+2024-12-20 16:38:42.514 [info ]: Evaluating performance
+2024-12-20 16:38:42.535 [info ]: Performance evaluation completed
+2024-12-20 16:38:42.535 [info ]: Performance evaluation completed
+2024-12-20 16:38:42.535 [info ]: Performance evaluation completed
+2024-12-20 16:38:42.535 [info ]: Performance evaluation completed
+2024-12-20 16:38:42.546 [info ]: Uno's C-Index: 0.787010
+2024-12-20 16:38:42.546 [info ]: Uno's C-Index: 0.787010
+2024-12-20 16:38:42.546 [info ]: Uno's C-Index: 0.787010
+2024-12-20 16:38:42.546 [info ]: Uno's C-Index: 0.787010
+2024-12-20 16:39:04.957 [info ]: : Starting training
+2024-12-20 16:39:04.957 [info ]: : Starting training
+2024-12-20 16:39:04.957 [info ]: : Starting training
+2024-12-20 16:39:04.957 [info ]: : Starting training
+2024-12-20 16:39:04.988 [info ]: : Finishing training
+2024-12-20 16:39:04.988 [info ]: : Finishing training
+2024-12-20 16:39:04.988 [info ]: : Finishing training
+2024-12-20 16:39:04.988 [info ]: : Finishing training
+2024-12-20 16:39:05.002 [info ]: : Making predictions
+2024-12-20 16:39:05.002 [info ]: : Making predictions
+2024-12-20 16:39:05.002 [info ]: : Making predictions
+2024-12-20 16:39:05.002 [info ]: : Making predictions
+2024-12-20 16:39:05.026 [info ]: : Predictions completed
+2024-12-20 16:39:05.026 [info ]: : Predictions completed
+2024-12-20 16:39:05.026 [info ]: : Predictions completed
+2024-12-20 16:39:05.026 [info ]: : Predictions completed
+2024-12-20 16:39:05.040 [info ]: : Evaluating performance
+2024-12-20 16:39:05.040 [info ]: : Evaluating performance
+2024-12-20 16:39:05.040 [info ]: : Evaluating performance
+2024-12-20 16:39:05.040 [info ]: : Evaluating performance
+2024-12-20 16:39:05.062 [info ]: : Performance evaluation completed
+2024-12-20 16:39:05.062 [info ]: : Performance evaluation completed
+2024-12-20 16:39:05.062 [info ]: : Performance evaluation completed
+2024-12-20 16:39:05.062 [info ]: : Performance evaluation completed
+2024-12-20 16:39:05.077 [info ]: : Uno's C-Index: 0.805867
+2024-12-20 16:39:05.077 [info ]: : Uno's C-Index: 0.805867
+2024-12-20 16:39:05.077 [info ]: : Uno's C-Index: 0.805867
+2024-12-20 16:39:05.077 [info ]: : Uno's C-Index: 0.805867
+2024-12-20 16:53:42.761 [info ]: : Starting training
+2024-12-20 16:53:42.761 [info ]: : Starting training
+2024-12-20 16:53:42.761 [info ]: : Starting training
+2024-12-20 16:53:42.761 [info ]: : Starting training
+2024-12-20 16:53:42.802 [info ]: : Finishing training
+2024-12-20 16:53:42.802 [info ]: : Finishing training
+2024-12-20 16:53:42.802 [info ]: : Finishing training
+2024-12-20 16:53:42.802 [info ]: : Finishing training
+2024-12-20 16:53:42.817 [info ]: : Making predictions
+2024-12-20 16:53:42.817 [info ]: : Making predictions
+2024-12-20 16:53:42.817 [info ]: : Making predictions
+2024-12-20 16:53:42.817 [info ]: : Making predictions
+2024-12-20 16:53:42.842 [info ]: : Predictions completed
+2024-12-20 16:53:42.842 [info ]: : Predictions completed
+2024-12-20 16:53:42.842 [info ]: : Predictions completed
+2024-12-20 16:53:42.842 [info ]: : Predictions completed
+2024-12-20 16:53:42.857 [info ]: : Evaluating performance
+2024-12-20 16:53:42.857 [info ]: : Evaluating performance
+2024-12-20 16:53:42.857 [info ]: : Evaluating performance
+2024-12-20 16:53:42.857 [info ]: : Evaluating performance
+2024-12-20 16:53:42.879 [info ]: : Performance evaluation completed
+2024-12-20 16:53:42.879 [info ]: : Performance evaluation completed
+2024-12-20 16:53:42.879 [info ]: : Performance evaluation completed
+2024-12-20 16:53:42.879 [info ]: : Performance evaluation completed
+2024-12-20 16:53:42.894 [info ]: : Uno's C-Index: 0.747721
+2024-12-20 16:53:42.894 [info ]: : Uno's C-Index: 0.747721
+2024-12-20 16:53:42.894 [info ]: : Uno's C-Index: 0.747721
+2024-12-20 16:53:42.894 [info ]: : Uno's C-Index: 0.747721
+2024-12-20 17:52:40.488 [info ]: Starting training
+2024-12-20 17:52:40.488 [info ]: Starting training
+2024-12-20 17:52:40.488 [info ]: Starting training
+2024-12-20 17:52:40.488 [info ]: Starting training
+2024-12-20 17:58:49.863 [info ]: Starting training
+2024-12-20 17:58:49.863 [info ]: Starting training
+2024-12-20 17:58:49.863 [info ]: Starting training
+2024-12-20 17:58:49.863 [info ]: Starting training
+2024-12-20 17:58:49.903 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 17:58:49.903 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 17:58:49.903 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 17:58:49.903 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 17:58:49.924 [info ]: JSON coxph fit
+2024-12-20 17:58:49.924 [info ]: JSON coxph fit
+2024-12-20 17:58:49.924 [info ]: JSON coxph fit
+2024-12-20 17:58:49.924 [info ]: JSON coxph fit
+2024-12-20 17:58:49.944 [info ]: Finishing training
+2024-12-20 17:58:49.944 [info ]: Finishing training
+2024-12-20 17:58:49.944 [info ]: Finishing training
+2024-12-20 17:58:49.944 [info ]: Finishing training
+2024-12-20 17:58:49.963 [info ]: Making predictions
+2024-12-20 17:58:49.963 [info ]: Making predictions
+2024-12-20 17:58:49.963 [info ]: Making predictions
+2024-12-20 17:58:49.963 [info ]: Making predictions
+2024-12-20 17:58:49.994 [info ]: Predictions completed
+2024-12-20 17:58:49.994 [info ]: Predictions completed
+2024-12-20 17:58:49.994 [info ]: Predictions completed
+2024-12-20 17:58:49.994 [info ]: Predictions completed
+2024-12-20 17:58:50.014 [info ]: Evaluating performance
+2024-12-20 17:58:50.014 [info ]: Evaluating performance
+2024-12-20 17:58:50.014 [info ]: Evaluating performance
+2024-12-20 17:58:50.014 [info ]: Evaluating performance
+2024-12-20 17:58:50.043 [info ]: Performance evaluation completed
+2024-12-20 17:58:50.043 [info ]: Performance evaluation completed
+2024-12-20 17:58:50.043 [info ]: Performance evaluation completed
+2024-12-20 17:58:50.043 [info ]: Performance evaluation completed
+2024-12-20 17:58:50.063 [info ]: Uno's C-Index: 0.850714
+2024-12-20 17:58:50.063 [info ]: Uno's C-Index: 0.850714
+2024-12-20 17:58:50.063 [info ]: Uno's C-Index: 0.850714
+2024-12-20 17:58:50.063 [info ]: Uno's C-Index: 0.850714
+2024-12-20 18:01:39.906 [info ]: Starting training
+2024-12-20 18:01:39.906 [info ]: Starting training
+2024-12-20 18:01:39.906 [info ]: Starting training
+2024-12-20 18:01:39.906 [info ]: Starting training
+2024-12-20 18:01:39.963 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 18:01:39.963 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 18:01:39.963 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 18:01:39.963 [warn ]: Warning: Object not serializable - No method asJSON S3 class: coxph
+2024-12-20 18:01:39.985 [info ]: JSON coxph fit
+2024-12-20 18:01:39.985 [info ]: JSON coxph fit
+2024-12-20 18:01:39.985 [info ]: JSON coxph fit
+2024-12-20 18:01:39.985 [info ]: JSON coxph fit
+2024-12-20 18:01:40.006 [info ]: Finishing training
+2024-12-20 18:01:40.006 [info ]: Finishing training
+2024-12-20 18:01:40.006 [info ]: Finishing training
+2024-12-20 18:01:40.006 [info ]: Finishing training
+2024-12-20 18:01:40.026 [info ]: Making predictions
+2024-12-20 18:01:40.026 [info ]: Making predictions
+2024-12-20 18:01:40.026 [info ]: Making predictions
+2024-12-20 18:01:40.026 [info ]: Making predictions
+2024-12-20 18:01:40.056 [info ]: Predictions completed
+2024-12-20 18:01:40.056 [info ]: Predictions completed
+2024-12-20 18:01:40.056 [info ]: Predictions completed
+2024-12-20 18:01:40.056 [info ]: Predictions completed
+2024-12-20 18:01:40.077 [info ]: Evaluating performance
+2024-12-20 18:01:40.077 [info ]: Evaluating performance
+2024-12-20 18:01:40.077 [info ]: Evaluating performance
+2024-12-20 18:01:40.077 [info ]: Evaluating performance
+2024-12-20 18:01:40.105 [info ]: Performance evaluation completed
+2024-12-20 18:01:40.105 [info ]: Performance evaluation completed
+2024-12-20 18:01:40.105 [info ]: Performance evaluation completed
+2024-12-20 18:01:40.105 [info ]: Performance evaluation completed
+2024-12-20 18:01:40.125 [info ]: Uno's C-Index: 0.718033
+2024-12-20 18:01:40.125 [info ]: Uno's C-Index: 0.718033
+2024-12-20 18:01:40.125 [info ]: Uno's C-Index: 0.718033
+2024-12-20 18:01:40.125 [info ]: Uno's C-Index: 0.718033
