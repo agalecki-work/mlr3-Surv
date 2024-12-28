@@ -11,7 +11,12 @@ R6_classes <- Filter(function(x) {
 }, objects_in_mlr3)
 
 # Print the list of R6ClassGenerator objects
-print(R6_classes)
+print(R6_classes) #  [1] "BenchmarkResult" "DataBackend" ..."TaskGenerator" ... [57] "TaskUnsupervised"  
+print(TaskGenerator)
+class(TaskGenerator)  # [1] "R6ClassGenerator"
+TaskGenerator$public_methods # Methods source code
+
+
 
 print(mlr_task_generators)
 

@@ -26,6 +26,11 @@ available_tasks <- as.data.table(mlr_tasks)
 colnames(available_tasks)
 available_tasks[task_type == "surv", c("key")]
 
+# Tasks as  a tibble
+tasks_tibble = as_tibble(available_tasks)
+tasks_tibble %>% select(key, properties) %>% unnest(cols= properties)
+
+
 # Task instance
 
 tt = tsk("pbc")
