@@ -34,12 +34,15 @@ colnames_all = names(my_dt)
 
 # Ex.1 Create a TaskSurv
 
-colnames_ignore = c("pid","ryear","rfs","csize")   # Ignore cols from using as predictors
-selected_features = setdiff(colnames_all, colnames_ignore) 
-print(selected_features)
+selected_cols = c("grade3", "nodes2", "nodes3")    
+print(selected_cols)
+
+# Define the condition for filtering (e.g., "csize > 5")
+
+condition <- "csize > 5"
 
 task = TaskSurv$new(
-  id = "task_surv", 
+  id = paste0("my_dt|", condition, "|"), 
   backend = my_dt, 
   time = "ryear", 
   event = "rfs", 
@@ -47,24 +50,21 @@ task = TaskSurv$new(
   label = "task1:my_dt:ryear:rfs"
 )
 
-# Select only the desired features for modeling
-task$select(selected_features)
-
-# Define the condition for filtering (e.g., "csize > 5")
-condition <- "csize > 5"
+# Select only the desired cols for modeling
+task$select(selected_cols)
 
 # Use the helper function to filter the task rows
 filtered_task <- filter_task_rows(task, condition)
 # Define a learner
-learner <- lrn("surv.coxph")
+cox <- lrn("surv.coxph")
 
 # Train the learner on the filtered task
-learner$train(filtered_task)
+cox$train(filtered_task)
 
-# Check the task data to confirm the filter has been applied
+# Check the task data to confirm the filter has been applied to rows
  be_colnames = task$backend$colnames #  colnames in backend
 
-filtered_data <- filtered_task$backend$data(rows = filtered_task$row_ids,cols=be_colnames)
+filtered_data <- filtered_task$backend$data(rows = filtered_task$row_ids, cols=be_colnames)
 print(filtered_data)
 print(task)
 
