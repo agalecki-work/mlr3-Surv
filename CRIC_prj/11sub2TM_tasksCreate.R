@@ -48,7 +48,7 @@ args_default = list(
      # target_info is mandatoy (no default value)
      srcdata_name       ="CRIC_dt",
      feature_cols       = NULL,
-     filter             = NULL,
+     filter_col         = NULL,
      weight_col         = NULL,
      add_to_strata_cols = NULL,
      event.strata       = TRUE,

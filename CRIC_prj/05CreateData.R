@@ -2,28 +2,30 @@
 rm(list=ls())
 
 # Load dependencies
+library(mlr3)
 library(dplyr)
+library(data.table)
 
 # Set paths and filenames
 
 DataSetupInfo = list(
-    ScriptName = "05CreateData",
-    DataFolderPath = "./data/",
-    RdataName = "02-cric_complete112023.Rdata",
-    DataName   = "df_complete",
+    ScriptName       = "05CreateData",
+    DataFolderPath   = "./data/",
+    RdataName        = "02-cric_complete112023.Rdata",
+    DataName         =  "df_complete",
     OutputFolderPath = "./out/",
-    saved_objects = c("saved_objects", "DataSetupInfo", "DataInfo", "CRIC_dt")
+    saved_objects    =  c("saved_objects", "DataSetupInfo", "DataInfo", "CRIC_dt")
     )
-ScriptName =  DataSetupInfo$ScriptName
-RdataName =    DataSetupInfo$RdataName
-DataName =    DataSetupInfo$DataName
-DataFolderPath = DataSetupInfo$DataFolderPath
+ScriptName       = DataSetupInfo$ScriptName
+RdataName        = DataSetupInfo$RdataName
+DataName         = DataSetupInfo$DataName
+DataFolderPath   = DataSetupInfo$DataFolderPath
 OutputFolderPath = "./out/"
 
 RdataPath = paste0(DataFolderPath, RdataName)
 
 # Start logging
-sink(paste0(OutputFolderPath, "05CreateMasterBackend.Rout"))
+#sink(paste0(OutputFolderPath, "05CreateMasterBackend.Rout"))
 
 # Load and display data
 cat("===== Rdata name:", RdataName, "\n")
@@ -58,6 +60,7 @@ set.seed(123)
 
 Data <- Data %>%
   mutate(
+    ..row_id = 1:nrow(Data),  # Mandatory
     ACRcat = factor(ACRcat),
     CKD = factor(CKD),
     CHF_factor = factor(CHF),
@@ -65,7 +68,9 @@ Data <- Data %>%
     RACE_CAT_1 = factor(RACE_CAT_1),
     log_OL1 = log(OL1),
     wt1 = runif(nrow(Data), 1, 2), 
-    wt2 = runif(nrow(Data), 0.8, 1.2)
+    wt2 = runif(nrow(Data), 0.8, 1.2),
+    BMI30_idx = if_else(BMI <30, 1, 0),
+    CCH_idx = CHF# Auxiliary indicator variable
   )
 
 # Create time/event variables for competing risks analysis
@@ -118,28 +123,34 @@ print(time_event2_mtx)
 vx = rep("?", times = ncol(Data))
 names(vx)=  colnames(Data)
 vx[cols_added] = "new"
-vx["PID"] = "ID"
 vx[c("wt1", "wt2")] = "WT"
-vx["CHF"] = "CCH"
 vx[paste0("OL", 1:21)] = "OL"
 
 tm1_nms <- as.vector(time_event1_mtx[, c("time", "event_num")])
 tm2_nms <- as.vector(time_event2_mtx[, c("time", "event_num", "event_factor")])
 vx[tm1_nms] <- "tm1"
 vx[tm2_nms] <- "tm2"
+vx["..row_id"] <- "ID"
+vx[c("BMI30_idx", "CCH_idx")] <-  "AUX"
 
-CRIC_dt = Data
+CRIC_dt = Data   #!!!
 rm(Data)
 
+# Design cols do not contain predictors
+CRIC_design_cols = c("..row_id", tm1_nms, tm2_nms, "wt1", "wt2","BMI30_idx", "CCH_idx")  # Mandatory  
+
+
 DataInfo <- list(
-  RdataPath = RdataPath,
-  DataName = DataName,
-  tmtx1   = time_event1_mtx,
-  tmtx2   = time_event2_mtx,
+  RdataPath    = RdataPath,
+  tmtx1        = time_event1_mtx,
+  tmtx2        = time_event2_mtx,
   cols_removed = cols_removed,
-  cols_added  = cols_added,
-  col_grps    = vx
+  cols_added   = cols_added,
+  col_grps     = vx,
+  design_cols  = CRIC_design_cols
 )
+
+
 
 cat("\n ==== DataInfo component names \n")
 print(names(DataInfo))
@@ -149,8 +160,8 @@ print(names(DataInfo))
 cat("\n --- RdataPath \n")
 print(DataInfo$RdataPath)
 
-cat("\n --- DataName \n")
-print(DataInfo$DataName)
+cat("\n --- Data Info \n")
+print(DataInfo$Data_Info)
 
 
 cat("\n --- Matrix for  0/1 events \n") 
@@ -178,6 +189,10 @@ cat ("\n Groups of variables \n")
 res = sapply(grp_nms, FUN = function(nm) names(grps[grps == nm]))
 print(res)
        
+# Design variables
+cat ("\n Design variables \n") 
+#res = sapply(grp_nms, FUN = function(nm) names(grps[grps == nm]))
+print(DataInfo$design_cols)
 
 # Save objects
 saved_objects = DataSetupInfo$saved_objects
@@ -185,7 +200,7 @@ save(list = saved_objects, file = paste0(OutputFolderPath, DataSetupInfo$ScriptN
 cat("\n --- Objects saved: ", paste(saved_objects, collapse=', '), "\n")
 
 # Stop logging
-sink()
+#sink()
 cat("\n --- Execution finished: Objects saved: ", paste(saved_objects, collapse=', '), "\n")
 
 # Cleanup

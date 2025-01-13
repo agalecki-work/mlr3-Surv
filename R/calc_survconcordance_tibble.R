@@ -1,5 +1,6 @@
+
 # Function to calculate and assemble concordance indices into a tidy tibble
-calc_survconcordance = function(prediction, timewt = c("n", "S", "S/G", "n/G2", "I"), conf_level = 0.95, weights = NULL, ...) {
+calc_survconcordance_tibble = function(prediction, timewt = c("n", "S", "S/G", "n/G2", "I"), conf_level = 0.95, weights = NULL, ...) {
   # Extract truth and prediction from the prediction object
   Survx = prediction$truth
   predx = prediction$crank
@@ -7,13 +8,7 @@ calc_survconcordance = function(prediction, timewt = c("n", "S", "S/G", "n/G2", 
   # Get the learner id from the task used to create the prediction
   learner_id = prediction$learner$id
 
-  # Warn and ignore weights if prediction is from surv.coxph learner
-  if (learner_id == "surv.coxph" && !is.null(weights)) {
-    warning("Weights are not supported for surv.coxph learner and will be ignored.")
-    weights = NULL
-  }
-
-  # Function to calculate concordance
+   # Function to calculate concordance
   calculate_concordance = function(Survx, predx, timewt = NULL, weights = NULL, ...) {
     tryCatch({
       survival::concordance(Survx ~ predx, timewt = timewt, weights = weights, ...)
@@ -68,3 +63,9 @@ calc_survconcordance = function(prediction, timewt = c("n", "S", "S/G", "n/G2", 
 
   return(results)
 }
+
+#--- Example
+# cox = lrn("surv.coxph")
+# part = partition(task)
+# prediction = cox$train(task, part$train)$predict(task,part$test)
+# calc_survconcordance_tibble(prediction)

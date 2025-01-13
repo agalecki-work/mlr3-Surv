@@ -10,7 +10,7 @@ rm(list=ls())
 
 
 
-# Objects: "DataInfo" "CRIC_dt" created
+# Objects: `DataInfo`, `CRIC_dt` (re)created 
 source("05CreateData.R")
 print(saved_objects)
 print(names(DataInfo))
@@ -19,7 +19,7 @@ print(DataInfo$tmtx2)
 
 source("./R/traceit.R")
 source("./R/tmtxInfo_helper.R")
-source("./R/createSRS_TaskSurv.R")
+source("./R/createTaskSurv.R")
 
 
 tmtx1 = DataInfo$tmtx1
@@ -35,8 +35,8 @@ tmtxInfo_helper(row2)
 auxFun = function(i){
          info = tmtxInfo_helper(i)
          argsi = c(list(target_info = info), args)
-         task = do.call(createSRS_TaskSurv, argsi)
-         extra_args = c(timeStamp = timeStamp, task$extra_args)
+         task = do.call(createTaskSurv, argsi)
+         extra_args = list(timeStamp = timeStamp)
          task$extra_args = extra_args
          return(task)
    }
@@ -46,9 +46,9 @@ auxFun = function(i){
 
 args_default = list(
      # target_info is mandatoy (no default value)
-     srcdata_name       ="CRIC_dt",
+     DataBackend        = "CRIC_DataBackend",
      feature_cols       = NULL,
-     filter             = NULL,
+     filter_col         = NULL,  # Column used to filter out rows of data
      weight_col         = NULL,
      add_to_strata_cols = NULL,
      event.strata       = TRUE,
@@ -62,7 +62,7 @@ timeStamp = strsplit(as.character(Sys.time()), split=".", fixed=TRUE)[[1]][1]
 
 #================  Create `tm_test` list of tasks 
 tmMtx = "tm"  # TM
-test_features        = c("BMI", "OL1","CKD")
+test_features        = c("BMI", "OL1","CKD", "CHF")
 
 tmtx = DataInfo$tmtx1
 
@@ -73,6 +73,18 @@ tm_test = apply(tmtx, 1, auxFun)
 names(tm_test) =  tmtx[, "target_id"]
 tm_test
 
+#================  Create `tm_test_BMI30` list of tasks 
+tmMtx = "tm"  # TM
+test_features        = c("BMI", "OL1","CKD", "CHF")
+
+tmtx = DataInfo$tmtx1
+
+args = args_default
+args$feature_cols = test_features      # <-------
+args$filter_col = "BMI30_idx"
+tm_testBMI30 = apply(tmtx, 1, auxFun)
+names(tm_testBMI30) =  tmtx[, "target_id"]
+tm_testBMI30
 
 #================  Create `tm_test_OLx` list of tasks 
 
