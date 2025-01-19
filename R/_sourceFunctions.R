@@ -1,11 +1,11 @@
 funNms <- c(
   "traceit",            # Used by other functions, needs to go first
+  "apply_time_horizon",
   "calc_survconcordance_tibble",
-  "createBackendData",
+  "create_cvglmnet_extra_args",
   "createTaskSurv",
-  "cv.glmnet_stratified_folds",
-  "onehotencodeTask",
-  "truncate_survival_time"
+  "Descriptive_stats"
+
 )
 
 FUNscriptNames  <- paste0(funNms,".R") 
