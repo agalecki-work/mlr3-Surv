@@ -16,8 +16,6 @@ load("./Rdata/05CreateData.Rdata") # `CRIC_dt` `DataInfo` loaded
 
 # Manually source necessary R functions
 
-# Manually source necessary R functions
-
 source("./R/traceit.R")
 source("./R/apply_time_horizon.R")
 source("./R/createTaskSurv.R")
@@ -26,40 +24,82 @@ tinfo_mtx = DataInfo$targets_info_mtx
 
 #-----------
 
+cat("===== TEST1 \n")
 
-#cols =  c("PID", "TIME_LOSS50", "TIME_DEATH", "DEADx", "LOSS50", target_info[c("time", "event")])
-
-#dtx = CRIC_dt[,cols]
-#colnames(dtx)
-
-
-
-traceit("-- TEST1 : subset_col is 'BMI30_idx'", NULL, TRUE)    
-
-target_info= tinfo_mtx[6,]
+target_info= tinfo_mtx[1,]
 print(target_info)
 
+backendSRS_BMI = list(
+       option = "SRS",
+       id     = "CRIC",
+       primary_key  = "SSID_num",
+       feature_cols =c("BMI", "SEXf"),
+       time_horizon = 5,
+       filter = "BMI<35",
+       CCH_subcohort = "CHF", #
+       weight = c(SRS= "wt1", CCH = "wt2", CCH1 = NA), # tentative, weight extracted depending on option value
+       add_to_strata_cols = "SEXf"
+)
 
-task1 = createTaskSurv(target_info, "CRIC", CRIC_dt, subset_col = "BMI30_idx")
+
+
+task1 = createTaskSurv(CRIC_dt, target_info, backendSRS_BMI, traceon=TRUE)
+
+# Retrieve and print the entire backend data. Use task$row_ids directly.
+task1_data <- task1$data()
+
+backend1_data <- task1$backend$data(
+  rows = task1$row_ids,  # Directly use the ID column
+  cols = task1$backend$colnames
+)
 print(task1)
+print(task1_data)
+# print(backend1_data)
 
-traceit("-- TEST2 : `createTaskSurv()` feature_cols argument ", NULL, TRUE)
+#========== TEST2
+cat("======== TEST2 : `createTaskSurv()` feature_cols \n ")
 
-
-task2 = createTaskSurv(target_info, "CRIC", CRIC_dt,feature_cols  = "BMI")
+backend_info2 = backendSRS_BMI
+backend_info2$feature_cols  = "BMI" 
+task2 = createTaskSurv(CRIC_dt, target_info, backend_info2, traceon=TRUE)
 print(task2)
 
-traceit("-- TEST3 : feature_cols and subset_col arguments ", NULL, TRUE)
 
-task3 = createTaskSurv(target_info,"CRIC", CRIC_dt, subset_col = "BMI30_idx", feature_cols ="BMI")
-print(task3)
+#======= TEST3
+
+cat("====== TEST3 : feature_cols and filter arguments \n")
+backend_info3 = backendSRS_BMI
+backend_info3$feature_cols  = "BMI" 
+backend_info3$filter  = "BMI <25" 
+
+
+task3 = createTaskSurv(CRIC_dt,target_info,backend_info3, traceon=FALSE)
+#print(task3)
+
+
+#====== TEST4
 
 
 traceit("-- TEST4:  add_to_strata_cols argument ", NULL, TRUE) 
+cat("======== TEST4 : feature_cols and filter arguments \n")
+backend_info4 = backendSRS_BMI
+backend_info4$feature_cols  = "BMI" 
+backend_info4$add_to_strata_cols  = "RACE_CAT_1" 
 
-task4 = createTaskSurv(target_info,"CRIC", CRIC_dt,  add_to_strata_cols = "CHF", feature_cols ="BMI")
-print(task4)
-print(task4$strata)
+task4 = createTaskSurv(CRIC_dt, target_info, backend_info4, traceon = FALSE)
+#print(task4)
+#print(task4$strata)
+# Retrieve and print the entire backend data. Use task$row_ids directly.
+task4_data <- task4$data()
 
+backend4_data <- task4$backend$data(
+  rows = task1$row_ids,  # Directly use the ID column
+  cols = task1$backend$colnames
+)
+
+
+#print(task4)
+#print(task4_data)
+#print(backend4_data)
 
 

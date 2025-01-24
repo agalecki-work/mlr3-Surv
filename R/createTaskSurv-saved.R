@@ -1,40 +1,3 @@
-#' Create a Survival or Multistate Task
-#'
-#' This function creates a survival analysis task using the mlr3proba framework, which can
-#' be configured for various sampling options and feature specifications.
-#' It allows for the inclusion of additional strata or subcohorts according to the provided backend configuration.
-#'
-#' @param data A `data.table` or `data.frame` containing the dataset.
-#' @param target_info A named character vector with keys "target_id", "time", "event", and "type",
-#'   giving information about the target variable, the time variable, and the type of survival model.
-#' @param backend_info A list containing configuration options for the backend, including:
-#'   `id`, `option`, `primary_key`, `feature_cols`, `filter`, `time_horizon`, 
-#'   `CCH_subcohort`, `add_to_strata_cols`, and `weight`.
-#' @param event_strata A logical value indicating whether the event should be included in strata (default is `TRUE`).
-#' @param traceon A logical value indicating whether to print tracing information for debugging (default is `FALSE`).
-#'
-#' @return An object of class `TaskSurv` or `TaskClassif`, depending on the type specified in `target_info`.
-#' This object contains the configured task suitable for analysis in the mlr3 framework.
-#'
-#' @examples
-#' # Example setup (replace with real data and configuration):
-#' target_info <- c(target_id = "tm01", time = "TIME_ESRD", event = "ESRD", type = "right")
-#' backend_info <- list(
-#'   id = "CRIC",
-#'   option = "SRS",
-#'   primary_key = "SSID_num",
-#'   feature_cols = c("BMI", "SEXf"),
-#'   filter = "BMI<35",
-#'   time_horizon = 5,
-#'   CCH_subcohort = "CHF",
-#'   add_to_strata_cols = "SEXf",
-#'   weight = c(SRS = "wt1", CCH = "wt2", CCH1 = NA)
-#' )
-#' 
-#' # Create task
-#' task <- createTaskSurv(data = CRIC_dt, target_info = target_info, backend_info = backend_info)
-#'
-#' @export
 createTaskSurv <- function(data, target_info, backend_info = NULL, event_strata = TRUE, traceon = FALSE) {
   # Helper for default values
   `%||%` <- function(a, b) if (!is.null(a)) a else b
@@ -173,6 +136,3 @@ createTaskSurv <- function(data, target_info, backend_info = NULL, event_strata 
   traceit("--- Task creation finished")
   return(task)
 }
-
-
-
